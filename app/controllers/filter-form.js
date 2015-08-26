@@ -1,10 +1,29 @@
 // Artist/Album Menu Buttons
 
 app.controller('filterForm', function($scope, $q, $log) {
+ 
+// artist/album menu variables 
   $scope.status = {
     isopen: false
   };
 
+// song display/delete/add variables
+  $scope.inputField = "";
+	$scope.songSearchText =  "";
+	$scope.theSongs = "";
+	$scope.newSongs = {
+		name: "",
+		artist: "",
+		album: "",
+	};
+
+// rating variables
+	$scope.songs = [];
+	$scope.rate = 7;
+	$scope.max = 10;
+	$scope.isReadonly = false;
+
+// Artist/Album Menu
   $scope.toggled = function(open) {
     $log.log('Dropdown is now: ', open);
   };
@@ -15,15 +34,21 @@ app.controller('filterForm', function($scope, $q, $log) {
     $scope.status.isopen = !$scope.status.isopen;
   };
 
-	$scope.inputField = "";
-	$scope.songSearchText =  "";
-	$scope.theSongs = "";
-	$scope.newSongs = {
-		name: "",
-		artist: "",
-		album: "",
-	};
-	$scope.songs = [];
+// Attempt at rating system
+
+	  $scope.hoveringOver = function(value) {
+	    $scope.overStar = value;
+	    $scope.percent = 100 * (value / $scope.max);
+	  };
+
+	  $scope.ratingStates = [
+	    {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
+	    {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
+	    {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
+	    {stateOn: 'glyphicon-heart'},
+	    {stateOff: 'glyphicon-off'}
+	  ];
+
 
 	// deletes from list
 	$scope.removeSong = function(key) {

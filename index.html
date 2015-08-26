@@ -63,7 +63,14 @@
 <!-- Display Songs -->
         <div>
           <ul class="song-list" ng-repeat="key in songs | filter:songSearchText">
-            <li><h4>{{key.name}}</h4> Artist: {{key.artist}} | Album: {{key.album}} <button ng-click="removeSong(key)" class="btn btn-default btn-xs">Remove</button></li> 
+            <li><h4>{{key.name}}</h4> Artist: {{key.artist}} | Album: {{key.album}} 
+
+<!-- Adding rating to each song -->
+              <p><rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" ></rating>
+                <span class="label" ng-show="overStar && !isReadonly">{{percent}}%</span>
+                <button type="button" class="btn btn-xs btn-danger" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
+              </p>
+            <button ng-click="removeSong(key)" class="btn btn-default btn-xs">Remove</button></li> 
           </ul>
         </div>
 
