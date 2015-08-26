@@ -1,0 +1,24 @@
+{ "songs": [
+	
+	{"name": "Hold Back the River",
+		 "artist": "James Bay",
+		 "album": "Chaos and the Calm"
+		},
+	{"name": "Bad Moon Rising",
+		 "artist": "Creedence Clearwater Revival",
+		 "album": "Green River"
+		},
+	{"name": "Shake it Out",
+		 "artist":"Florence and the Machines",
+		 "album": "Ceremonials"
+		},
+	{"name": "Gold on the Ceiling",
+		 "artist": "Black Keys",
+		 "album": "El Camino"
+		},
+	{"name": "Just One Drink",
+		 "artist": "Jack White",
+		 "album": "Lazaretto"
+		}
+]
+}
