@@ -38,44 +38,47 @@
               </li> -->
             </ul>
             <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
+              <div class="form-group searchBox">
                 <input type="text" class="form-control" ng-model="songSearchText" placeholder="Search Music">
               </div>
             </form>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-
-      <div class="leftForm">
+      <div class="container-fluid">
 <!-- Add Songs -->
-        <div>
-          <input type="text" ng-model="newSongs.name" placeholder="Song Name">
-          <input type="text" ng-model="newSongs.artist" placeholder="Artist Name">
-          <input type="text" ng-model="newSongs.album" placeholder="Album Name">
-          <button ng-click="addSong()" class="btn btn-default btn-sm">Add Song</button>
+        <div class="col-md-6">
+          <div class="userSongInput">
+            <h4>Add a Song</h4>
+            <input type="text" ng-model="newSongs.name" class="form-control" placeholder="Song Name">
+            <input type="text" ng-model="newSongs.artist" class="form-control" placeholder="Artist Name">
+            <input type="text" ng-model="newSongs.album" class="form-control" placeholder="Album Name">
+            <br>
+            <button ng-click="addSong()" class="btn btn-default btn-sm col-md-2 addSong">Add Song</button>
+          </div>
+    <!-- Artist/Album Menu -->
+          <div class="dropMenu">
+            <select class="form-control" ng-model="theSongs" ng-options="value.album group by value.artist for value in songs">
+              <option value=''> Artist/Album </option>
+            </select>
+          </div>
         </div>
-<!-- Artist/Album Menu -->
-        <select class="form-control" ng-model="theSongs" ng-options="value.album group by value.artist for value in songs">
-          <option value=''> Artist/Album </option>
-        </select>
+    <!-- Display Songs -->
+        <div class="col-md-6">
+          <div class="songList">
+            <ul class="song-list" ng-repeat="key in songs | filter:songSearchText">
+              <li><h4>{{key.name}}</h4> Artist: {{key.artist}} | Album: {{key.album}} 
 
-
-<!-- Display Songs -->
-        <div>
-          <ul class="song-list" ng-repeat="key in songs | filter:songSearchText">
-            <li><h4>{{key.name}}</h4> Artist: {{key.artist}} | Album: {{key.album}} 
-
-<!-- Adding rating to each song -->
-              <p><rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" ></rating>
-                <span class="label" ng-show="overStar && !isReadonly">{{percent}}%</span>
-                <button type="button" class="btn btn-xs btn-danger" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
-              </p>
-            <button ng-click="removeSong(key)" class="btn btn-default btn-xs">Remove</button></li> 
-          </ul>
+    <!-- Adding rating to each song -->
+                <p><rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = value"></rating>
+                  <button type="button" class="btn btn-xs btn-danger" ng-click="rate = 0" ng-disabled="isReadonly">Clear Rating</button>
+                </p>
+    <!-- Delete button -->
+              <button ng-click="removeSong(key)" class="btn btn-default btn-xs">Remove</button></li> 
+            </ul>
+          </div>
         </div>
-
-      </div> <!-- Closes out "leftForm" -->
-
+      </div>
     </section>
 
     <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>

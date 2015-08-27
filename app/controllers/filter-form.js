@@ -19,8 +19,8 @@ app.controller('filterForm', function($scope, $q, $log) {
 
 // rating variables
 	$scope.songs = [];
-	$scope.rate = 7;
-	$scope.max = 10;
+	$scope.rate = 0;
+	$scope.max = 5;
 	$scope.isReadonly = false;
 
 // Artist/Album Menu
@@ -59,10 +59,11 @@ app.controller('filterForm', function($scope, $q, $log) {
 	};
 	// adds to list
 	$scope.addSong = function() {
-		$scope.songs.push({
+		$scope.songs.unshift({
 			name: $scope.newSongs.name, 
 			artist: $scope.newSongs.artist, 
-			album: $scope.newSongs.album
+			album: $scope.newSongs.album,
+			rating: 0
 		});
 		
 		$scope.newSongs = "";

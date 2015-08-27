@@ -1,11 +1,44 @@
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
 
-.leftForm {
-  margin-left: 25px; }
+.searchBox {
+  float: right; }
 
 select {
   max-width: 300px;
   margin: 25px 0; }
+
+.userSongInput {
+  display: inline-block;
+  border: ridge 5px lightgrey;
+  -moz-border-radius-topleft: 35px;
+  -moz-border-radius-topright: 35px;
+  -moz-border-radius-bottomleft: 35px;
+  -moz-border-radius-bottomright: 35px;
+  -webkit-border-top-left-radius: 35px;
+  -webkit-border-top-right-radius: 35px;
+  -webkit-border-bottom-left-radius: 35px;
+  -webkit-border-bottom-right-radius: 35px;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  padding: 35px; }
+  .userSongInput h4 {
+    color: red; }
+
+@media screen and (min-width: 320px) {
+  .userSongInput, .dropMenu, .songList {
+    display: block;
+    margin-left: 20px; } }
+@media screen and (min-width: 640px) {
+  .userSongInput, .dropMenu, .songList {
+    display: block;
+    margin-left: 20px; } }
+@media screen and (min-width: 900px) {
+  .userSongInput, .songList {
+    display: inline-block; }
+    .userSongInput .addSong, .songList .addSong {
+      width: 50%; } }
 
 /*# sourceMappingURL=main.css.map */
