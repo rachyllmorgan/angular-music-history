@@ -8,86 +8,41 @@
     <title>Angular Music History</title>
   </head>
   <body ng-app="MusicApp">
-    <section ng-controller="filterForm">
-<!-- Nav Bar -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-  <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">Music App</a>
-          </div>
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-<!-- No reason for 2nd page at the moment
-
-              <li class="active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add Music <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="addmusic.html">Add Music</a></li>
-                  <li><a href="#">Edit Music</a></li>
-                </ul>
-              </li> -->
-            </ul>
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group searchBox">
-                <input type="text" class="form-control" ng-model="songSearchText" placeholder="Search Music">
-              </div>
-            </form>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-      <div class="container-fluid">
-<!-- Add Songs -->
-        <div class="col-md-6">
-          <div class="userSongInput">
-            <h4>Add a Song</h4>
-            <input type="text" ng-model="newSongs.name" class="form-control" placeholder="Song Name">
-            <input type="text" ng-model="newSongs.artist" class="form-control" placeholder="Artist Name">
-            <input type="text" ng-model="newSongs.album" class="form-control" placeholder="Album Name">
-            <br>
-            <button ng-click="addSong()" class="btn btn-default btn-sm col-md-2 addSong">Add Song</button>
-          </div>
     <!-- Artist/Album Menu -->
-          <div class="dropMenu">
-            <select class="form-control" ng-model="theSongs" ng-options="value.album group by value.artist for value in songs">
-              <option value=''> Artist/Album </option>
-            </select>
-          </div>
-        </div>
-    <!-- Display Songs -->
-        <div class="col-md-6">
-          <div class="songList">
-            <ul class="song-list" ng-repeat="key in songs | filter:songSearchText">
-              <li><h4>{{key.name}}</h4> Artist: {{key.artist}} | Album: {{key.album}} 
-
-    <!-- Adding rating to each song -->
-                <p><rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = value"></rating>
-                  <button type="button" class="btn btn-xs btn-danger" ng-click="rate = 0" ng-disabled="isReadonly">Clear Rating</button>
-                </p>
-    <!-- Delete button -->
-              <button ng-click="removeSong(key)" class="btn btn-default btn-xs">Remove</button></li> 
-            </ul>
-          </div>
-        </div>
+    <section ng-controller="SongCtrl">
+      <div class="createBtn">
+        <h4>Add New Song</h4>
+        <a href="#/songs/new"><button class="btn btn-default">New Song</button></a>
       </div>
-    </section>
+      <div class="dropMenu">
+        <h4>Search by Artist/Album</h4>
+        <select class="form-control" ng-model="theSongs" ng-options="value.album group by value.artist for value in songs | filter: unique">
+          <option value=''> Artist/Album </option>
+        </select>
+      </div>
+
+  
+  <!-- Display Tag -->
+    <section ng-view></section>
 
     <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="lib/bower_components/angular/angular.min.js"></script>
+    <script src="ng-lodash.min.js"></script>
     <script src="lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="lib/bower_components/angular-filter/dist/angular-filter.min.js"></script>
+    <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="lib/bower_components/firebase/firebase.js"></script>
 
     <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="factories/simple-storage.js"></script>
+    <script type="text/javascript" src="app/controllers/song-detail.js"></script>
+    <script type="text/javascript" src="app/controllers/song-form.js"></script>
     <script type="text/javascript" src="app/controllers/filter-form.js"></script>
+    <script type="text/javascript" src="app/controllers/display-songs.js"></script>
+    <script type="text/javascript" src="app/controllers/rate-song.js"></script>
+
   </body>
 
 </html>

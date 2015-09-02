@@ -1,0 +1,9 @@
+<section>
+	<div class="borderBox">
+		<h2>Song List</h2>  
+	  <div ng-repeat="song in songs | filter: songSearchText" class="perSong">
+	    <a href="#/songs/{{ song.$id }}" ngclick="showSongDetail(song)"><strong>{{ song.name }}</strong></a>
+	    <p>Performed by <strong>{{song.artist}}</strong> on the album <strong>{{song.album}}</strong></p>
+	  </div>
+	</div>
+</section>

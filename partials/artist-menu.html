@@ -1,0 +1,8 @@
+<!-- Artist/Album Menu -->
+<section>
+  <div class="dropMenu">
+    <select class="form-control" ng-model="theSongs" ng-options="value.album group by value.artist for value in songs">
+      <option value=''> Artist/Album </option>
+    </select>
+  </div>
+</section>
