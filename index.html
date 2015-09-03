@@ -7,17 +7,17 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <title>Angular Music History</title>
   </head>
-  <body ng-app="MusicApp">
+  <body>
 
     <!-- Artist/Album Menu -->
-    <section ng-controller="SongCtrl">
+    <section ng-controller="SongCtrl" ng-model="albumSelect">
       <div class="createBtn">
         <h4>Add New Song</h4>
         <a href="#/songs/new"><button class="btn btn-default">New Song</button></a>
       </div>
       <div class="dropMenu">
         <h4>Search by Artist/Album</h4>
-        <select class="form-control" ng-model="theSongs" ng-options="value.album group by value.artist for value in songs | filter: unique">
+        <select class="form-control" ng-model="theSongs" ng-options="value.album group by value.artist for value in songs">
           <option value=''> Artist/Album </option>
         </select>
       </div>
@@ -26,22 +26,25 @@
   <!-- Display Tag -->
     <section ng-view></section>
 
-    <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="lib/bower_components/angular/angular.min.js"></script>
-    <script src="ng-lodash.min.js"></script>
-    <script src="lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="lib/bower_components/angular-filter/dist/angular-filter.min.js"></script>
-    <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
-    <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
-    <script src="lib/bower_components/firebase/firebase.js"></script>
+  <script data-main="app/main" src="../lib/bower_components/requirejs/require.js"></script>
 
-    <script type="text/javascript" src="app/app.js"></script>
-    <script type="text/javascript" src="factories/simple-storage.js"></script>
-    <script type="text/javascript" src="app/controllers/song-detail.js"></script>
-    <script type="text/javascript" src="app/controllers/song-form.js"></script>
-    <script type="text/javascript" src="app/controllers/filter-form.js"></script>
-    <script type="text/javascript" src="app/controllers/display-songs.js"></script>
-    <script type="text/javascript" src="app/controllers/rate-song.js"></script>
+<!--     Scripts with AngularJS version
+    // <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+    // <script src="lib/bower_components/angular/angular.min.js"></script>
+    // <script src="ng-lodash.min.js"></script>
+    // <script src="lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    // <script src="lib/bower_components/angular-filter/dist/angular-filter.min.js"></script>
+    // <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+    // <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+    // <script src="lib/bower_components/firebase/firebase.js"></script>
+
+    // <script type="text/javascript" src="app/app.js"></script>
+    // <script type="text/javascript" src="factories/simple-storage.js"></script>
+    // <script type="text/javascript" src="app/controllers/song-detail.js"></script>
+    // <script type="text/javascript" src="app/controllers/song-form.js"></script>
+    // <script type="text/javascript" src="app/controllers/filter-form.js"></script>
+    // <script type="text/javascript" src="app/controllers/display-songs.js"></script>
+    // <script type="text/javascript" src="app/controllers/rate-song.js"></script> -->
 
   </body>
 

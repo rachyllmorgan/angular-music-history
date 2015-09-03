@@ -1,11 +1,7 @@
 # angular-music-history
 
-Music history project with angular
+Music history project 
 
-Currently pulling songs from Firebase
+Tried to add requirejs to angular
 
-This is before creating directives
-
-	Need/want: Artist/album menu to display "unique"
-			   Pull song info from API?
-			   Star rating system
+Getting injecter:module error

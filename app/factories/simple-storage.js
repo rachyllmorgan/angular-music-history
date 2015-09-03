@@ -1,4 +1,5 @@
-app.factory("simple-storage", function () {
+define(['factories/factories'], function(factories) {
+  factories.factory("simple-storage", function () {
     var bucket = {};
 
     return {
@@ -11,4 +12,5 @@ app.factory("simple-storage", function () {
             bucket[key] = value;
         }
     };
+  });
 });
