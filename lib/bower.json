@@ -21,12 +21,6 @@
     "firebase": "~2.2.9",
     "jquery": "~2.1.4",
     "lodash": "~3.10.1",
-    "requirejs-babel": "~0.0.8",
-    "ng-lodash": "~0.2.3",
-    "angular-loader": "~1.4.5",
-    "requirejs": "~2.1.20",
-    "requirejs-domReady": "~2.0.1",
-    "angular-mocks": "~1.4.5",
-    "ng-load": "~1.0.2"
+    "ng-lodash": "~0.2.3"
   }
 }

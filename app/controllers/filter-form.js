@@ -1,10 +1,9 @@
 // Artist/Album Menu Buttons
-define(['app'], function (app) {
-  app.controller('filterFormCtrl', 
+app.controller('filterFormCtrl', 
   ["$scope", 
   "firebase",
   
-    function($scope, firebase) {
+  function($scope, firebase) {
    
   // artist/album menu variables 
     $scope.status = {
@@ -25,5 +24,5 @@ define(['app'], function (app) {
       $event.stopPropagation();
       $scope.status.isopen = !$scope.status.isopen;
     };
-  }]);
-});
+  }
+]);
