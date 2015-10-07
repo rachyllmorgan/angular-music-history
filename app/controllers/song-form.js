@@ -2,8 +2,9 @@
 app.controller("SongFormCtrl", 
   ["$scope", 
   "$firebaseArray",
+  "$http",
   
-  function($scope, $firebaseArray) {
+  function($scope, $firebaseArray, $http) {
 
 //variables	
   $scope.songs = [];
@@ -13,10 +14,26 @@ app.controller("SongFormCtrl",
   $scope.newSongArtist ="";
   $scope.newSongAlbum = "";
 
-  
+  $scope.userSongSearch = "";
+  $scope.userArtistSearch = "";
 
-// console.log(simple_storage.addList("garbage", { a: 1, b: 2}));
+  $scope.searchSong = function(){
+    console.log("$scope.userSongSearch", $scope.userSongSearch);
+    $http.get('http://musicbrainz.org/ws/2/recording?query=' + $scope.userSongSearch + '?fmt=json').
+    then(function(data) {///search?q=Goosinator&type=beer
+      console.log(data);
+      $scope.songtitles="";
+    });
+  };
 
+  $scope.searchArtist = function(){
+    console.log("$scope.userArtistSearch", $scope.userArtistSearch);
+    $http.get('http://developer.echonest.com/api/v4/artist/search?api_key=B1HNDPJGNYE8IUD1M&format=json&title=' + $scope.userArtistSearch).
+    then(function(data) {///search?q=Goosinator&type=beer
+      console.log(data);
+
+    });
+  };
 
   // add new items to the array
 

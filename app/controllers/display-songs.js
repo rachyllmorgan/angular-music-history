@@ -20,7 +20,7 @@ app.controller('SongCtrl',
 
   // $scope.search = function(){
   //   console.log("$scope.userInput", $scope.userInput);
-    $http.get('http://freemusicarchive.org/api/get/{dataset}.{format}?api_key=').
+    $http.get('http://developer.echonest.com/api/v4/song/search?api_key=B1HNDPJGNYE8IUD1M&format=json&results=1&artist=radiohead&title=karma%20police').
     then(function(data) {///search?q=Goosinator&type=beer
       console.log(data);
 

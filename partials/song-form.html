@@ -1,13 +1,45 @@
+<div layout="column" ng-cloak>
+  <br/>
+  <div class="userSongInput">
+  	<h2>Search New Song</h2>
+	  <md-content layout-padding class="autoScroll">
+	    <md-input-container class="md-icon-float" >
+	      <!-- Use floating label instead of placeholder -->
+	      <label>Song Title</label>
+	      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+	      <input ng-model="userSongSearch" type="text">
+	      <md-button class="md-raised" ng-click='searchSong()'>Search Song</md-button>
+	    </md-input-container>
+	    <br>
+	    <md-input-container class="md-icon-float" >
+	      <!-- Use floating label instead of placeholder -->
+	      <label>Artist/Band Name</label>
+	      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+	      <input ng-model="userArtistSearch" type="text">
+	      <md-button class="md-raised" ng-click='searchArtist()'>Search Artist</md-button>
+	    </md-input-container>
+	  </md-content>
+	</div>
+
+	<div class="userSongInput">
+		<md-subheader class="md-no-sticky">Search Results</md-subheader>
+    <md-list-item class="md-2-line">
+      <div class="md-list-item-text" ng-repeat="song in songtitles">
+        <h3>{{song.title}}</h3>
+        <p>{{song.artist_name}}</p>
+      </div>
+    </md-list-item>
+  </div>
 
 
-<div class="userSongInput">
+<!-- <div class="userSongInput">
   <h2>Add New Song</h2>
   <input type="text" ng-model="newSongName" class="form-control" placeholder="Song Name">
   <input type="text" ng-model="newSongArtist" class="form-control" placeholder="Artist Name">
   <input type="text" ng-model="newSongAlbum" class="form-control" placeholder="Album Name">
   <br>
   <a href="#/songs"><button ng-click="addSong()" class="btn btn-default btn-sm col-md-2 addSong">Add Song</button></a>
-</div>
+</div> -->
 
 <div>
 	<a href="#/songs">&lt; Back to song list</a>
